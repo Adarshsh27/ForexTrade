@@ -13,18 +13,14 @@ import java.util.List;
 @Getter
 public class UserPrincipal implements UserDetails {
     private final User user;
-    private final Collection<GrantedAuthority> grantedAuthorities;
 
     public UserPrincipal(User user) {
         this.user = user;
-        this.grantedAuthorities = new ArrayList<>(
-                List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()))
-        );
+
       }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return grantedAuthorities;
+    @Override public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("USER"));
     }
 
     @Override

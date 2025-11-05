@@ -19,8 +19,6 @@ public class User {
     @Column(name = "email_id" , unique = true)
     private String emailId;
 
-
-
     @Column(name = "full_name")
     private String fullName;
 
@@ -34,16 +32,11 @@ public class User {
     @JoinColumn(name = "wallet_id")
     private Wallet wallet;
 
-    private String role;
-
-    public User(String fullName, String password, String country, Wallet wallet, String role) {
+    public User(String fullName, String password, String country, Wallet wallet) {
         this.fullName = fullName;
         this.password = password;
         this.country = country;
         this.wallet = wallet;
-        this.role = role;
     }
-
-
 
 }
